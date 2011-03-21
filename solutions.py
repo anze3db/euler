@@ -307,6 +307,18 @@ def prob18(str):
                       
     print max(arr[-1])
 
+def prob19():
+    
+    import datetime
+    sundays = 0
+    d = datetime.date(1901, 1, 1)
+    while(d < datetime.date(2001, 1, 1)):
+        if d.weekday() == 6 and d.day == 1:
+            sundays += 1
+        d += datetime.timedelta(days = 1)
+        
+    print sundays
+
 def prob20(x):
     sum = 0
     for i in str(math.factorial(x)):
@@ -407,6 +419,7 @@ def prob48(n):
     st = str(s)
     print st[-10:]
     
+        
 if __name__ == '__main__':
     
     from params import *
@@ -417,6 +430,7 @@ if __name__ == '__main__':
     #prob22(param22)
     #prob21(10000)
     #prob20(100)
+    #prob19()
     #prob18(param18)
     #prob17(1000)
     #prob16(1000)
