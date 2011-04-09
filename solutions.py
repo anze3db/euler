@@ -361,6 +361,32 @@ def prob22(arr):
         s += score * (i+1)
     print s
 
+def prob23():
+    STOP_HERE = 28123
+
+    abundant = []
+    abundant_pairs = set()
+    def is_abundant(n):
+        sum = 0
+        for i in xrange(2, int(math.sqrt(n))+1):
+            if n % i == 0:
+                sum += i
+                if i != n/i:
+                    sum += n/i
+        if sum > n: 
+            abundant.append(n)
+            for j in abundant:
+                abundant_pairs.add(j + n)
+            
+        return False
+    for i in xrange(STOP_HERE+1):
+        is_abundant(i)   
+    sum = 0   
+    # print abundant
+    for i in xrange(STOP_HERE):
+        if i not in abundant_pairs:
+            sum += i     
+    print sum
 
     
 def prob25(n):
@@ -419,14 +445,18 @@ def prob48(n):
     st = str(s)
     print st[-10:]
     
+
+
         
+    
+      
 if __name__ == '__main__':
     
     from params import *
-
     #prob48(1000)
     #prob45(40755)
     #prob25(1000)
+    #prob23()
     #prob22(param22)
     #prob21(10000)
     #prob20(100)
