@@ -400,7 +400,35 @@ def prob25(n):
         if len(str(a)) == n:
             print i
             return
+
+def prob28(size):
     
+    count = 0
+    count_krog = 0
+    sum = 1
+    limit = 1
+    
+    for i in xrange(2, size*size+1):
+        if count == limit:
+            sum += i
+            count_krog += 1
+            count = 0
+            if count_krog == 4:
+                count_krog = 0
+                limit += 2
+        else: count += 1
+    print sum
+    
+def prob30(pow):
+    s = 0
+    for i in xrange(2, 1000000):
+        sum = 0
+        for j in str(i):
+            sum += int(j) ** pow
+        if sum == i:
+            s += i
+            print i
+    print s
     
 #lame:
 def prob45(max):
@@ -450,11 +478,18 @@ def prob48(n):
         
     
       
+
+
+
+
+
 if __name__ == '__main__':
     
     from params import *
     #prob48(1000)
     #prob45(40755)
+    #prob30(5)
+    #prob28(1001)
     #prob25(1000)
     #prob23()
     #prob22(param22)
