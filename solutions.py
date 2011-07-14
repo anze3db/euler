@@ -4,6 +4,7 @@ Created on Mar 9, 2011
 @author: smotko
 '''
 import math
+from random import random
 
 #Helpers:
 def _is_pol(s):
@@ -389,17 +390,17 @@ def prob23():
     print sum
 
     
-def prob25(n):
-    
-    a = 1
-    b = 2
-    i = 2
-    while(True):
-        i += 1
-        a,b = b, a+b
-        if len(str(a)) == n:
-            print i
-            return
+    def prob25(n):
+        
+        a = 1
+        b = 2
+        i = 2
+        while(True):
+            i += 1
+            a,b = b, a+b
+            if len(str(a)) == n:
+                print i
+                return
 
 def prob28(size):
     
@@ -472,20 +473,31 @@ def prob48(n):
         print i
     st = str(s)
     print st[-10:]
+
+def permute(str):
     
+    print str
 
+def swap(str, i, j):
+    if i > j:
+        i,j = j,i
+    if i == j:
+        return str
+    return str[:i] + str[j] + str[i+1:j] + str[i] + str[j+1:]    
 
+def random_permute(str):
+    from random import randint
+    # I know I could just turn the string to an array and shuffle it
+    for i in range(len(str)-1):
+        k = randint(i, len(str)-1)
+        str = swap(str, i, k)
         
+    return str
     
-      
-
-
-
-
-
 if __name__ == '__main__':
     
     from params import *
+        
     #prob48(1000)
     #prob45(40755)
     #prob30(5)
