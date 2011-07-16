@@ -389,18 +389,59 @@ def prob23():
             sum += i     
     print sum
 
-    
-    def prob25(n):
+def prob24(s):
+    def lexi_permute(str):
         
-        a = 1
-        b = 2
-        i = 2
-        while(True):
-            i += 1
-            a,b = b, a+b
-            if len(str(a)) == n:
-                print i
-                return
+         arr = []
+         while True:
+        
+            arr.append(str)
+            
+            # find j
+            n = len(str) - 1 
+            j = n - 1
+            while str[j] >= str[j+1]:
+                j -= 1
+                if j == -1:
+                    return arr
+            
+            # increase str j
+            l = n
+            while str[j] >= str[l]:
+                l -= 1
+            str = swap(str, j, l)
+        
+            # reverse
+            k = j + 1
+            l = n
+            while k < l:
+                if k < l:
+                    str = swap(str, k, l)
+                k += 1
+                l -= 1
+            
+        
+        
+    def swap(str, i, j):
+        if i > j:
+            i,j = j,i
+        if i == j:
+            return str
+        return str[:i] + str[j] + str[i+1:j] + str[i] + str[j+1:]    
+    arr = lexi_permute(s)
+    print arr[1000000-1]
+    
+def prob25(n):
+    
+    a = 1
+    b = 2
+    i = 2
+    while(True):
+        i += 1
+        a,b = b, a+b
+        if len(str(a)) == n:
+            print i
+            return
 
 def prob28(size):
     
@@ -474,30 +515,17 @@ def prob48(n):
     st = str(s)
     print st[-10:]
 
-def permute(str):
-    
-    print str
 
-def swap(str, i, j):
-    if i > j:
-        i,j = j,i
-    if i == j:
-        return str
-    return str[:i] + str[j] + str[i+1:j] + str[i] + str[j+1:]    
 
-def random_permute(str):
-    from random import randint
-    # I know I could just turn the string to an array and shuffle it
-    for i in range(len(str)-1):
-        k = randint(i, len(str)-1)
-        str = swap(str, i, k)
-        
-    return str
+
+
     
+
+   
 if __name__ == '__main__':
     
     from params import *
-        
+    prob24('0123456789')    
     #prob48(1000)
     #prob45(40755)
     #prob30(5)
