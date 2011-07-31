@@ -516,8 +516,14 @@ def prob48(n):
     print st[-10:]
 
 
-def prob29():
+def prob29(a,b):
+    s = set()
     
+    for i in range(2,a+1):
+        for j in range(2,b+1):
+            s.add(i**j)
+    
+    print len(s)
 
 
     
@@ -526,7 +532,7 @@ def prob29():
 if __name__ == '__main__':
     
     from params import *
-    prob23()
+    prob29(100,100)
     #prob48(1000)
     #prob45(40755)
     #prob30(5)
