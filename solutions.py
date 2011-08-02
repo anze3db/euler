@@ -443,6 +443,31 @@ def prob25(n):
             print i
             return
 
+def prob26(d):
+    lar_ostanek = 0
+    result = 0
+    for i in range(1, d):
+        k = 1
+        
+        ostanki = set()
+        for j in range(i+1):
+            while k < i:
+                k *= 10
+
+            
+            
+            k = k % i
+            ostanki.add(k)
+            if k == 0:
+                break
+            
+            
+        if len(ostanki) > lar_ostanek:
+            lar_ostanek = len(ostanki)
+            result = i
+        
+    print result
+
 def prob28(size):
     
     count = 0
@@ -525,42 +550,20 @@ def prob48(n):
     print st[-10:]
 
 
-def prob26(d):
-    lar_ostanek = 0
-    result = 0
-    for i in range(1, d):
-        k = 1
-        
-        ostanki = set()
-        for j in range(i+1):
-            while k < i:
-                k *= 10
-
-            
-            
-            k = k % i
-            ostanki.add(k)
-            if k == 0:
-                break
-            
-            
-        if len(ostanki) > lar_ostanek:
-            lar_ostanek = len(ostanki)
-            result = i
-        
-    print result
     
-
+def prob27():
+    pass
    
 if __name__ == '__main__':
     
     from params import *
-    prob26(1000)
+    prob27()
     #prob48(1000)
     #prob45(40755)
     #prob30(5)
     #prob29(100,100)
     #prob28(1001)
+    #prob26(1000)
     #prob25(1000)
     #prob24('0123456789')    
     #prob23()
