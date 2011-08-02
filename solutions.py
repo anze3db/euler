@@ -551,13 +551,23 @@ def prob48(n):
 
 
     
-def prob27():
-    pass
-   
+def prob27(a,b):
+    max = (0, 0, 0) #n, a, b
+    for i in range(-b, b):
+        if _is_prime(i):
+            for j in range(-a, a):
+                for n in range(1,80):
+                    if _is_prime(n**2 + n*j + i): 
+                        if n > max[0]:
+                            max = (n, j, i)
+                    else:
+                        break
+                            
+    print max[1]*max[2]
 if __name__ == '__main__':
     
     from params import *
-    prob27()
+    prob27(1000, 1000)
     #prob48(1000)
     #prob45(40755)
     #prob30(5)
